@@ -25,12 +25,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'education', label: 'Education' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
+    { id: 'home', label: 'Home', icon: '🏠' },
+    { id: 'about', label: 'About', icon: '👨‍💻' },
+    { id: 'experience', label: 'Experience', icon: '💼' },
+    { id: 'education', label: 'Education', icon: '🎓' },
+    { id: 'projects', label: 'Projects', icon: '🚀' },
+    { id: 'skills', label: 'Skills', icon: '⚡' },
   ];
 
   const scrollToSection = (sectionId) => {
@@ -41,29 +41,43 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#A5C9CA] shadow-lg md:fixed md:top-0 md:left-0 md:right-0 md:z-50">
+    <nav className="bg-code-surface/80 backdrop-blur-md border-b border-code-border shadow-lg md:fixed md:top-0 md:left-0 md:right-0 md:z-50">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-12 md:h-10">
-          <a href="#home" className="text-xl font-bold text-[#6B4226]">
-            KP
+        <div className="flex justify-between items-center h-12 md:h-16">
+          <a 
+            href="#home" 
+            className="text-xl font-bold text-code-keyword font-mono hover:text-code-variable transition-colors duration-300 animate-fade-in-left"
+          >
+            &lt;KP/&gt;
           </a>
-          <div className="hidden md:flex space-x-6">
-            {navItems.map((item) => (
+          
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item, index) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="text-[#2E4052] hover:text-[#6B4226] transition-colors text-sm"
+                className={`flex items-center space-x-2 text-code-text hover:text-code-keyword transition-all duration-300 text-sm font-mono group animate-fade-in-down`}
+                style={{animationDelay: `${index * 0.1}s`}}
               >
-                {item.label}
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {item.icon}
+                </span>
+                <span className={`${activeSection === item.id ? 'text-code-keyword' : ''} hover:animate-pulse-slow`}>
+                  {item.label}
+                </span>
+                {activeSection === item.id && (
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-code-keyword animate-glow"></div>
+                )}
               </a>
             ))}
           </div>
+          
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-[#2E4052]"
+            className="md:hidden text-code-text hover:text-code-keyword transition-colors duration-300"
           >
             <svg
-              className="w-5 h-5"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -87,18 +101,23 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+      
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#A5C9CA]">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
+        <div className="md:hidden bg-code-surface/95 backdrop-blur-md border-t border-code-border animate-fade-in-down">
+          <div className="px-4 pt-2 pb-4 space-y-2">
+            {navItems.map((item, index) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="block px-3 py-2 text-[#2E4052] hover:text-[#6B4226] transition-colors"
+                className={`flex items-center space-x-3 px-3 py-2 text-code-text hover:text-code-keyword hover:bg-code-bg/30 rounded transition-all duration-300 font-mono`}
                 onClick={() => setIsOpen(false)}
+                style={{animationDelay: `${index * 0.05}s`}}
               >
-                {item.label}
+                <span className="text-lg">{item.icon}</span>
+                <span className={activeSection === item.id ? 'text-code-keyword' : ''}>
+                  {item.label}
+                </span>
               </a>
             ))}
           </div>

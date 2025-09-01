@@ -18,7 +18,11 @@ const Education = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4 max-w-4xl mx-auto">
-      <h2 className="text-4xl font-bold text-[#2E4052] mb-8">Education</h2>
+     <h2 className="text-4xl font-bold text-code-text mb-8 animate-fade-in-down">
+        <span className="text-code-keyword">## </span>
+        Education
+
+      </h2>
       <div className="w-full relative">
         {/* Timeline line */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#2E4052]/20"></div>

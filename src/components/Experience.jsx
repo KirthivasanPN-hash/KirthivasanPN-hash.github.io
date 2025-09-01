@@ -15,13 +15,14 @@ const Experience = () => {
     },
     {
       title: 'Software Engineer Internship',
-      company: 'Food Fight',
+      company: 'Food Fight Incorporation',
       period: 'June 2024 - August 2024',
       description: [
-        'Created RESTful APIs using FastAPI, enabling seamless application-database communication and achieving an increase in API responsiveness. Adhered Pydantic models for data validation, database operations, and reducing error rates.',
-        'Enabled SQLAlchemy for Pythonic database interactions, enabling seamless execution of queries using an ORM. Optimized query performance, reducing execution time and improving database efficiency, leading to a 10% decrease in error rates.',
-        'Solved an user matching recommendation system by leveraging cosine and Jaccard similarity metrics. Analyzed multidimensional user data including preferences, behavioral patterns, and historical interactions for personalized recommendations',
-        'Leveraged AWS Lambda to support serverless tasks, optimizing resource usage and reducing server costs. Integrated AWS CloudWatch for real-time log monitoring and alerting, assisting in issue detection and resolution.'
+        'Implemented real-time WebSocket communication system using FastAPI and async patterns, enabling live event notifications, participant tracking, and bidirectional messaging.',
+        'Managed complete multiplayer game lifecycle (creation, acceptance, completion) with robust state validation and built real-time tracking for user history, win rates, and participation metrics.',
+        'Performed Behavior-Driven Development (BDD) testing for multiple components using Gherkin syntax, ensuring consistent behavioral validation and improving cross-team communication on requirements.',
+        'Orchestrated containerized microservices via Docker Compose with MySQL, AWS Cognito and S3, integrating automate pipelines and health checks to streamline deployment and testing.',
+        'Leveraged AWS API Gateway, Lambda to support serverless tasks, optimizing resource usage, and enabled CloudWatch for real-time log monitoring and alerting, assisting in issue detection and resolution.'
       ],
     },
     {
@@ -46,7 +47,11 @@ const Experience = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4 max-w-4xl mx-auto">
-      <h2 className="text-4xl font-bold text-[#2E4052] mb-8">Experience</h2>
+     <h2 className="text-4xl font-bold text-code-text mb-8 animate-fade-in-down">
+        <span className="text-code-keyword">&lt;</span>
+        Experience
+        <span className="text-code-keyword">/&gt;</span>
+      </h2>
       <div className="w-full relative">
         {/* Timeline line */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#2E4052]/20"></div>
